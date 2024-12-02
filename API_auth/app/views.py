@@ -63,7 +63,7 @@ class ProfileView(APIView):
     )
     def get(self, request):
         logger.debug("ProfileView called")
-        phone_number = f'+{request.query_params.get('phone_number')}'.replace(' ', '')
+        phone_number = f'+{request.query_params.get("phone_number")}'.replace(' ', '')
         try:
             user = User.objects.get(phone_number=phone_number)
             serializer = UserProfileSerializer(user)
